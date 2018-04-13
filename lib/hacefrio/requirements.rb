@@ -10,6 +10,7 @@ module Hacefrio
       namespace('storage') do
         register('devices') {Device}
         register('alerts') {Alert}
+        register('sensors') {Sensor}
       end
 
       namespace('transform') do
