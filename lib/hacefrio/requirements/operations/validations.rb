@@ -1,0 +1,3 @@
+require_relative 'validations/double_registration_prevention'
+require_relative 'validations/firmware_presence'
+require_relative 'validations/serial_number_presence'
