@@ -2,3 +2,25 @@
   <a href="/">Devices</a>
   <a href="/logout">Sign Out</a>
 </nav>
+
+<h1>Devices</h1>
+
+<table id="devices">
+  <thead>
+    <tr>
+      <th>Serial Number</th>
+      <th>Firmware Version</th>
+      <th>Registration</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    % devices.each do |device|
+      <tr id="device-{{device.id}}">
+        <td>{{device.serial_number}}</td>
+        <td>{{device.firmware}}</td>
+        <td>{{device.created_at}}</td>
+      </tr>
+    % end
+  </tbody>
+</table>

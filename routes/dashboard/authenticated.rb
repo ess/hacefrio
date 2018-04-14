@@ -1,13 +1,11 @@
+require_relative 'authenticated/devices'
+
 module Dashboard
   module Authenticated
     App = Syro.new(Deck) do
       @current_admin = authenticated(Admin)
 
-      get do
-        page[:title] = 'Devices'
-        render("views/authenticated/devices/index.mote")
-      end
-
+      run(Devices)
     end
   end
 end
