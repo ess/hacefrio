@@ -2,6 +2,9 @@ module Dashboard
   class Deck < Syro::Deck
     include Shield::Helpers
     include Mote::Helpers
+    include Hacefrio::Requirements::Import[
+      'storage.devices',
+    ]
 
     def session
       req.session
