@@ -12,6 +12,10 @@ gem 'rack', '>= 2.0'
 gem 'dry-transaction'
 gem 'dry-container'
 gem 'dry-auto_inject'
+gem 'shield'
+gem 'mote'
+gem 'tas'
+gem 'hache'
 
 # Persistence
 gem 'redic'
@@ -25,10 +29,6 @@ group :development, :test do
   gem 'sqlite3'
 end
 
-group :production do
-  gem 'pg'
-end
-
 group :test do
   gem 'cucumber', '~> 3.0'
   gem 'rspec', '~> 3.0'
@@ -38,4 +38,5 @@ group :test do
   gem 'simplecov', '~> 0.16.1'
   gem 'database_cleaner'
   gem 'redis'
+  gem 'capybara'
 end

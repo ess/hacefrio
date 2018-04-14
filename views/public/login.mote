@@ -1,0 +1,30 @@
+<nav>
+  Sign In
+</nav>
+
+<h1>Please Sign In</h1>
+
+% if app.session[:alert]
+  <p>
+    {{ app.session.delete(:alert) }}
+  </p>
+% end
+
+<form action="/login" method="POST">
+  <input
+    type="text"
+    name="email"
+    placeholder="Enter your email"
+    value="{{ Hache.h(app.req[:email].to_s) }}">
+
+  <input
+    type="password"
+    name="password"
+    placeholder="Password">
+
+  <button type="submit">Login</button>
+</form>
+
+<p>
+  <a href="/reset">Forgot password?</a>
+</p>

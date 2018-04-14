@@ -1,9 +1,19 @@
 GEM
   remote: https://rubygems.org/
   specs:
+    addressable (2.5.2)
+      public_suffix (>= 2.0.2, < 4.0)
+    armor (0.0.3)
     backports (3.11.2)
     bcrypt (3.1.11)
     builder (3.2.3)
+    capybara (3.0.1)
+      addressable
+      mini_mime (>= 0.1.3)
+      nokogiri (~> 1.8)
+      rack (>= 1.6.0)
+      rack-test (>= 0.6.3)
+      xpath (~> 3.0)
     concurrent-ruby (1.0.5)
     cucumber (3.1.0)
       builder (>= 2.1.2)
@@ -71,23 +81,29 @@ GEM
     faker (1.8.7)
       i18n (>= 0.7)
     gherkin (5.0.0)
+    hache (3.0.0)
     hiredis (0.6.1)
     i18n (1.0.0)
       concurrent-ruby (~> 1.0)
     ice_nine (0.11.2)
     inflecto (0.0.2)
     json (2.1.0)
+    mini_mime (1.0.0)
+    mini_portile2 (2.3.0)
+    mote (1.3.0)
     multi_json (1.13.1)
     multi_test (0.1.2)
     nest (3.1.1)
       redic
+    nokogiri (1.8.2)
+      mini_portile2 (~> 2.3.0)
     ohm (3.1.1)
       nest (~> 3)
       redic (~> 1.5.0)
       stal
     ohm-contrib (3.0.0)
       ohm (~> 3.0)
-    pg (1.0.0)
+    public_suffix (3.0.2)
     puma (3.11.4)
     rack (2.0.4)
     rack-test (1.0.0)
@@ -131,6 +147,8 @@ GEM
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
     seg (1.2.0)
+    shield (2.1.1)
+      armor
     simplecov (0.16.1)
       docile (~> 1.1)
       json (>= 1.8, < 3)
@@ -142,13 +160,17 @@ GEM
     syro (3.1.0)
       rack (>= 1.6.0)
       seg
+    tas (0.0.1)
     transproc (1.0.2)
+    xpath (3.0.0)
+      nokogiri (~> 1.8)
 
 PLATFORMS
   ruby
 
 DEPENDENCIES
   bcrypt
+  capybara
   cucumber (~> 3.0)
   database_cleaner
   dotenv
@@ -156,9 +178,10 @@ DEPENDENCIES
   dry-container
   dry-transaction
   factis (~> 1.0)
+  hache
+  mote
   ohm
   ohm-contrib
-  pg
   puma
   rack (>= 2.0)
   rack-test (~> 1.0)
@@ -168,9 +191,11 @@ DEPENDENCIES
   redis
   rom-factory (~> 0.5)
   rspec (~> 3.0)
+  shield
   simplecov (~> 0.16.1)
   sqlite3
   syro (~> 3.1)
+  tas
 
 BUNDLED WITH
    1.16.1
