@@ -1,0 +1,21 @@
+<nav>
+  <a href="/">Devices</a>
+  <a href="/logout">Sign Out</a>
+</nav>
+
+<h1>Device Details</h1>
+
+<dl class="device" id="device-{{device.id}}">
+  <dt>Serial Number</dt><dd id="serial_number">{{device.serial_number}}</dd>
+  <dt>Firmware Version</dt><dd id="firmware">{{device.firmware}}</dd>
+  <dt>Registration Date</dt><dd id="registration">{{device.created_at}}</dd>
+</dl>
+
+<h2>Latest Sensor Readings</h2>
+
+<dl id="sensors">
+  <dt>Temperature</dt><dd id="temp">{{device.latest_temp}}</dd>
+  <dt>Air Humidity</dd><dd id="humidity">{{device.latest_humidity}}</dd>
+  <dt>Carbon Monoxide Level</dt><dd id="co">{{device.latest_co}}</dd>
+  <dt>System Health</dt><dd id="status">{{device.latest_status}}</dd>
+</dl>

@@ -4,7 +4,9 @@ module API
       post do
         workflow = Hacefrio::Workflows::DeviceUpdates.new
 
-        workflow.call(json: req.body.read) do |match|
+        workflow.call(
+          device_id: current_device.id, json: req.body.read
+        ) do |match|
           match.success do
             render({update: 'success'})
           end

@@ -16,8 +16,9 @@
 
   <tbody>
     % devices.each do |device|
+      % serial = device.serial_number
       <tr id="device-{{device.id}}">
-        <td>{{device.serial_number}}</td>
+        <td><a href="/devices/{{serial}}">{{serial}}</a></td>
         <td>{{device.firmware}}</td>
         <td>{{device.created_at}}</td>
       </tr>

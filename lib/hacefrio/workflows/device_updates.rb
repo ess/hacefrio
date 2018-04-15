@@ -22,7 +22,9 @@ module Hacefrio
 
       private
       def extract_updates(input)
-        Success(updates: input[:decoded]['updates'])
+        updates = input.delete(:decoded)['updates']
+
+        Success(input.merge({updates: updates}))
       end
 
       def warn_on_empty_payload(input)
