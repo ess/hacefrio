@@ -5,6 +5,10 @@ module Dashboard
     App = Syro.new(Deck) do
       @current_admin = authenticated(Admin)
 
+      on 'login' do
+        res.redirect '/'
+      end
+
       run(Devices)
     end
   end

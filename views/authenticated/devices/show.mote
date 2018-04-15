@@ -8,7 +8,7 @@
 <dl class="device" id="device-{{device.id}}">
   <dt>Serial Number</dt><dd id="serial_number">{{device.serial_number}}</dd>
   <dt>Firmware Version</dt><dd id="firmware">{{device.firmware}}</dd>
-  <dt>Registration Date</dt><dd id="registration">{{device.created_at}}</dd>
+  <dt>Registration Date</dt><dd id="registration">{{device.registered_at}}</dd>
 </dl>
 
 <h2>Latest Sensor Readings</h2>

@@ -16,14 +16,17 @@ Then "I see a list of devices" do
   expect(page).to have_selector('#devices')
 end
 
+def detect_device(device)
+  selector = "#device-#{device.id}"
+  expect(page).to have_selector(selector)
+  within(selector) do
+    expect(page).to have_content(device.serial_number)
+    expect(page).to have_content(device.firmware)
+    expect(page).to have_content(device.registered_at)
+  end
+end
 Then "each device lists its serial, firmware, and registration date" do
   Device.all.each do |device|
-    selector = "#device-#{device.id}"
-    expect(page).to have_selector(selector)
-    within(selector) do
-      expect(page).to have_content(device.serial_number)
-      expect(page).to have_content(device.firmware)
-      expect(page).to have_content(device.created_at)
-    end
+    detect_device(device)
   end
 end
