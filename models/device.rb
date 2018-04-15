@@ -14,6 +14,10 @@ class Device < Ohm::Model
     find(serial_number: serial_number).first
   end
 
+  def registered_at
+    Time.at(created_at).utc
+  end
+
   def latest_temp
     latest_reading_for('temp')
   end

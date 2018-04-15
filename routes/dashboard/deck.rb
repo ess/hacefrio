@@ -6,6 +6,15 @@ module Dashboard
       'storage.devices',
     ]
 
+    def finish!
+      handle 404 do
+        page[:title] = 'Are you lost?'
+        render('views/404.mote')
+      end
+
+      super
+    end
+
     def session
       req.session
     end
@@ -25,6 +34,7 @@ module Dashboard
     end
 
     def render(path, params = {})
+      page[:title] ||= 'Dashboard'
       page[:content][:src] = path
       page[:content].update(params)
 

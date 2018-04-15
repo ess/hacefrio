@@ -54,9 +54,7 @@ When "I browse to the device's details page" do
 end
 
 Then "I see its serial, firmware, and registration date" do
-  expect(page).to have_content(device.serial_number)
-  expect(page).to have_content(device.firmware)
-  expect(page).to have_content(device.created_at)
+  detect_device(device)
 end
 
 def detect_latest(sensor)

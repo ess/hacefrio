@@ -20,7 +20,7 @@
       <tr id="device-{{device.id}}">
         <td><a href="/devices/{{serial}}">{{serial}}</a></td>
         <td>{{device.firmware}}</td>
-        <td>{{device.created_at}}</td>
+        <td>{{device.registered_at}}</td>
       </tr>
     % end
   </tbody>

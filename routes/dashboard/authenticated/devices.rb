@@ -11,9 +11,11 @@ module Dashboard
           get do
             devices.with_serial_number(inbox[:serial_number]).tap do |device|
               if device
+                page[:title] = "Device #{device.serial_number}"
+
                 render("views/authenticated/devices/show.mote", device: device)
               else
-                res.status(404)
+                res.status = 404
               end
             end
           end
