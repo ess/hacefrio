@@ -10,4 +10,8 @@ class Alert < Ohm::Model
   def reported_at
     Time.at(created_at).utc
   end
+
+  def display_device
+    device_id.nil? ? 'None' : device.serial_number
+  end
 end

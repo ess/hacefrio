@@ -15,6 +15,7 @@
       {{ extended_header }}
     </header>
     <section>
+      {{ nav }}
       {{ content }}
     </section>
     <footer>

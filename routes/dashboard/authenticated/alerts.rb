@@ -14,6 +14,18 @@ module Dashboard
         )
       end
 
+      on :id do
+        on 'ack' do
+
+          # Ah, HTML consortium, why do you constantly flipflop on DELETE?
+          post do
+            acknowledger.call(id: inbox[:id]).to_result
+
+            res.redirect '/alerts'
+          end
+        end
+      end
+
     end
   end
 end

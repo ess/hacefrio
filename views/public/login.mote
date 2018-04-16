@@ -1,7 +1,3 @@
-<nav>
-  Sign In
-</nav>
-
 <h1>Please Sign In</h1>
 
 % if app.session[:alert]

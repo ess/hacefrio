@@ -1,10 +1,5 @@
 % base_path = "/devices/#{device.serial_number}"
 
-<nav>
-  <a href="/">Devices</a>
-  <a href="/logout">Sign Out</a>
-</nav>
-
 <h1>Device Details</h1>
 
 <dl class="device" id="device-{{device.id}}">

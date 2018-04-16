@@ -15,6 +15,10 @@ module Dashboard
       @sensor_finder ||= Hacefrio::Workflows::SensorLookup.new
     end
 
+    def acknowledger
+      @acknowledger ||= Hacefrio::Workflows::AlertAcknowledge.new
+    end
+
     def finish!
       handle 404 do
         page[:title] = 'Are you lost?'
@@ -42,6 +46,11 @@ module Dashboard
       @page ||= view.new.tap do |page|
         page[:src] = 'views/layout.mote'
         page[:extended_header] = ''
+
+        page[:nav] = partial(
+          authenticated(Admin) ? 'views/authenticated/nav.mote' : 'views/public/nav.mote'
+        )
+
         page[:content] = view.new
         page[:content][:app] = self
       end
