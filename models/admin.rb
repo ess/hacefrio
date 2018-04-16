@@ -1,10 +1,11 @@
 class Admin < Ohm::Model
   include Shield::Model
   include Ohm::Timestamps
+  include Ohm::DataTypes
 
   attribute :email
   attribute :crypted_password
-  attribute :blocked
+  attribute :blocked, Type::Boolean
 
   unique :email
   index :email

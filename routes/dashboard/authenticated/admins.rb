@@ -30,14 +30,10 @@ module Dashboard
       end
 
       on :id do
-        on 'ack' do
+        on 'toggle' do
+          blocker.call(id: inbox[:id]).to_result
 
-          # Ah, HTML consortium, why do you constantly flipflop on DELETE?
-          post do
-            acknowledger.call(id: inbox[:id]).to_result
-
-            res.redirect '/alerts'
-          end
+          res.redirect '/admins'
         end
       end
 

@@ -7,6 +7,10 @@ module Hacefrio
     module Registry
       extend Dry::Container::Mixin
 
+      namespace('services') do
+        register('mailer') {Mailer}
+      end
+
       namespace('storage') do
         register('admins') {Admin}
         register('alerts') {Alert}

@@ -22,7 +22,11 @@
     % admins.each do |admin|
       <tr id="admin-{{admin.id}}">
         <td>{{admin.email}}</td>
-        <td>{{admin.status}}</td>
+        <td>
+          <a id="toggle" href="/admins/{{admin.id}}/toggle">
+            {{admin.status}}
+          </a><
+        /td>
       </tr>
     % end
   </tbody>

@@ -28,6 +28,10 @@ module Dashboard
       @resetter ||= Hacefrio::Workflows::Resetter.new
     end
 
+    def blocker
+      @blocker ||= Hacefrio::Workflows::AccountToggle.new
+    end
+
     def finish!
       handle 404 do
         page[:title] = 'Are you lost?'
