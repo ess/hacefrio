@@ -1,3 +1,11 @@
+% if unacked_crits?
+  <div class="crit" style="width: 150px;">
+    <a id="alert-notice" href="/alerts" style="">
+      There are unacknowledged critical alerts!
+    </a>
+  </div>
+% end
+
 <form id="device-search"
   style="width: 150px;"
   id="device-search"

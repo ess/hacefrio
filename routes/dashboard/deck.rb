@@ -4,6 +4,7 @@ module Dashboard
     include Mote::Helpers
     include Hacefrio::Requirements::Import[
       'storage.devices',
+      'storage.alerts',
     ]
 
     def device_finder
@@ -21,6 +22,10 @@ module Dashboard
       end
 
       super
+    end
+    
+    def unacked_crits?
+      alerts.find(severity: 'CRIT').count > 0
     end
 
     def session

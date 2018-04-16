@@ -10,13 +10,13 @@ header {
   left: 50px;
 }
 
-header a {
-  font-size: 2em;
-  text-decoration: none;
-  color: #fff;
-  background-color: #111;
-  padding: 0.2em 0.4em;
-}
+/*header a {*/
+  /*font-size: 2em;*/
+  /*text-decoration: none;*/
+  /*color: #fff;*/
+  /*background-color: #111;*/
+  /*padding: 0.2em 0.4em;*/
+/*}*/
 
 section {
   display: block;

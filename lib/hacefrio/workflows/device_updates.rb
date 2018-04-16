@@ -75,12 +75,23 @@ module Hacefrio
       def persist_co_levels(input)
         input[:updates].each do |update|
           if update['co']
+            reported_at = update['at'].to_i
+            value = update['co'].to_f
+
             sensors.create(
-              reported_at: update['at'].to_i,
+              reported_at: reported_at,
               sensor_name: 'co',
-              value: update['co'],
+              value: value,
               device_id: input[:device_id]
             )
+
+            if value.to_i >= 9
+              Alert.create(
+                device_id: input[:device_id],
+                severity: 'CRIT',
+                message: "High CO Level: #{value}",
+              )
+            end
           end
         end
 
