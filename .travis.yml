@@ -1,0 +1,4 @@
+sudo: false
+services: redis-server
+rvm:
+  - "2.5.1"
