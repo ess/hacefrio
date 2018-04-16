@@ -38,6 +38,12 @@ module Dashboard
         render('views/404.mote')
       end
 
+      handle 403 do
+        logout(Admin)
+        page[:title] = 'Your account is suspended'
+        render('views/403.mote')
+      end
+
       super
     end
     

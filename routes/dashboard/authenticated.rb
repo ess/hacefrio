@@ -5,7 +5,20 @@ require_relative 'authenticated/devices'
 module Dashboard
   module Authenticated
     App = Syro.new(Deck) do
-      @current_admin = authenticated(Admin)
+      on authenticated(Admin).blocked do
+        default do
+          res.status = 403
+        end
+        #puts "blocked mate"
+        #default do
+          #puts "you done did it now"
+          #session[:alert] = 'Your account has been suspended.'
+
+          #logout(Admin)
+
+          #res.redirect '/logout'
+        #end
+      end
 
       on 'login' do
         res.redirect '/'

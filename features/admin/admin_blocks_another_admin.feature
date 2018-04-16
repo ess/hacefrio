@@ -19,12 +19,10 @@ Feature: Admin blocks another Admin
 
     When I refresh the page
     Then I am signed out
-    And I land on the sign in page
     And I am advised that I have been blocked
 
   Scenario: A blocked Admin attempts to sign in
     Given I'm not signed in
     And I've been blocked
     When I attempt to sign in
-    Then I land on the sign in page
-    And I'm advised that I have been blocked
+    And I am advised that I have been blocked
