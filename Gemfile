@@ -3,6 +3,7 @@ source "https://rubygems.org"
 git_source(:github) {|repo_name| "https://github.com/#{repo_name}" }
 
 gem 'rake', '~> 10.0'
+gem 'dotenv'
 
 # Web Framework
 gem 'syro', '~> 3.1'
@@ -26,11 +27,6 @@ gem 'ohm'
 gem 'ohm-contrib'
 
 gem 'bcrypt'
-
-group :development, :test do
-  gem 'dotenv'
-  gem 'sqlite3'
-end
 
 group :test do
   gem 'cucumber', '~> 3.0'
