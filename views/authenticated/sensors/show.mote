@@ -1,0 +1,41 @@
+% device_path = "/devices/#{device.serial_number}"
+% base_path = "#{device_path}/sensors/#{sensor_name}"
+
+<nav>
+  <a href="/">Devices</a>
+  <a href="/logout">Sign Out</a>
+</nav>
+
+<h1>{{heading}}</h1>
+
+<div id="scope">
+  <p>
+    Current view: {{timespan}}
+  </p>
+
+  <p>
+    Choose:
+    <a id="daily" href="{{base_path}}/daily">Daily</a>
+    <a id="weekly" href="{{base_path}}/weekly">Weekly</a>
+    <a id="monthly" href="{{base_path}}/monthly">Monthly</a>
+    <a id="yearly" href="{{base_path}}/yearly">Yearly</a>
+  </p>
+</div>
+
+<table id="readings">
+  <thead>
+    <tr>
+      <th>Value</th>
+      <th>Reported At</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    % sensors.each do |sensor|
+      <tr id="sensor-{{sensor.id}}">
+        <td>{{sensor.value}}</td>
+        <td>{{Time.at(sensor.reported_at).utc}}</td>
+      </tr>
+    % end
+  </tbody>
+</table>

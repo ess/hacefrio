@@ -1,3 +1,5 @@
+% base_path = "/devices/#{device.serial_number}"
+
 <nav>
   <a href="/">Devices</a>
   <a href="/logout">Sign Out</a>
@@ -14,8 +16,31 @@
 <h2>Latest Sensor Readings</h2>
 
 <dl id="sensors">
-  <dt>Temperature</dt><dd id="temp">{{device.latest_temp}}</dd>
-  <dt>Air Humidity</dd><dd id="humidity">{{device.latest_humidity}}</dd>
-  <dt>Carbon Monoxide Level</dt><dd id="co">{{device.latest_co}}</dd>
-  <dt>System Health</dt><dd id="status">{{device.latest_status}}</dd>
+  <dt>Temperature</dt>
+  <dd id="temp">
+    <a id="temp-history" href="{{base_path}}/sensors/temp">
+      {{device.latest_temp}}
+    </a>
+  </dd>
+
+  <dt>Air Humidity</dd>
+  <dd id="humidity">
+    <a id="humidity-history" href="{{base_path}}/sensors/humidity">
+      {{device.latest_humidity}}
+    </a>
+  </dd>
+  
+  <dt>Carbon Monoxide Level</dt>
+  <dd id="co">
+    <a id="co-history" href="{{base_path}}/sensors/co">
+      {{device.latest_co}}
+    </a>
+  </dd>
+  
+  <dt>System Health</dt>
+  <dd id="status">
+    <a id="status-history" href="{{base_path}}/sensors/status">
+      {{device.latest_status}}
+    </a>
+  </dd>
 </dl>

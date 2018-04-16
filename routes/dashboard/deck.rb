@@ -6,6 +6,14 @@ module Dashboard
       'storage.devices',
     ]
 
+    def device_finder
+      @device_finder ||= Hacefrio::Workflows::DeviceLookup.new
+    end
+
+    def sensor_finder
+      @sensor_finder ||= Hacefrio::Workflows::SensorLookup.new
+    end
+
     def finish!
       handle 404 do
         page[:title] = 'Are you lost?'

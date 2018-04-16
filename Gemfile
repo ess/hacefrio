@@ -39,4 +39,5 @@ group :test do
   gem 'database_cleaner'
   gem 'redis'
   gem 'capybara'
+  gem 'timecop'
 end
