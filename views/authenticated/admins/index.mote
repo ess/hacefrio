@@ -1,5 +1,15 @@
 <h1>Admins</h1>
 
+% if app.session[:alert]
+  <p>
+    {{ app.session.delete(:alert) }}
+  </p>
+% end
+
+<p>
+  <a href="/admins/new" id="invite">Invite a Collaborator</a>
+</p>
+
 <table id="admins">
   <thead>
     <tr>

@@ -7,7 +7,6 @@ Then "I land on the invitation creator" do
 end
 
 When "I submit the collaborator's email address" do
-  puts page.html
   within('#new-admin') do
     fill_in('email', with: memorize_fact(:new_admin, 'newuser@example.com'))
     find_button('Invite').click
@@ -19,7 +18,7 @@ Then "I land on the Admin list" do
 end
 
 Then "I'm advised that my invitation has been sent" do
-  expect(page).to have_content("The invitation is on its way.")
+  expect(page).to have_content("The invitation is on its way")
 end
 
 Then "the Collaborator receives an invitation email" do
@@ -27,7 +26,7 @@ Then "the Collaborator receives an invitation email" do
     deliveries.
     find {|delivery|
       delivery.to == recall_fact(:new_admin) &&
-        delivery.subject == "You're invited to Hacefrio!"
+        delivery.subject == "Activate your account"
     }
 
   expect(invitation).not_to be_nil

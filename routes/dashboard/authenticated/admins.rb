@@ -9,6 +9,22 @@ module Dashboard
         )
       end
 
+      on 'new' do
+        get do
+          page[:title] = 'Invite a Collaborator'
+
+          render('views/authenticated/admins/new.mote')
+        end
+
+        post do
+          Gatekeeper.invite(req[:email])
+
+          session[:alert] = 'The invitation is on its way'
+
+          res.redirect '/admins'
+        end
+      end
+
       on :id do
         on 'ack' do
 
