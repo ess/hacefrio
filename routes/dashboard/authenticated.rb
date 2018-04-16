@@ -9,15 +9,6 @@ module Dashboard
         default do
           res.status = 403
         end
-        #puts "blocked mate"
-        #default do
-          #puts "you done did it now"
-          #session[:alert] = 'Your account has been suspended.'
-
-          #logout(Admin)
-
-          #res.redirect '/logout'
-        #end
       end
 
       on 'login' do
