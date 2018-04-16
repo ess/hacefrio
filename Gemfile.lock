@@ -152,6 +152,7 @@ GEM
       diff-lcs (>= 1.2.0, < 2.0)
       rspec-support (~> 3.7.0)
     rspec-support (3.7.1)
+    scrivener (1.0.0)
     seg (1.2.0)
     shield (2.1.1)
       armor
@@ -200,6 +201,7 @@ DEPENDENCIES
   redis
   rom-factory (~> 0.5)
   rspec (~> 3.0)
+  scrivener
   shield
   simplecov (~> 0.16.1)
   sqlite3

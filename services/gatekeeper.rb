@@ -1,11 +1,11 @@
 module Gatekeeper
   extend Mote::Helpers
 
-  def self.invite(email)
+  def self.invite(user)
     mail = {
-      to: email,
+      to: user.email,
       subject: "Activate your account",
-      text: mote("mails/invite.mote", url: url(:activate, email)),
+      text: mote("mails/invite.mote", url: url(:activate, user.id)),
     }
 
     Mailer.deliver(mail)

@@ -17,7 +17,11 @@ module Dashboard
         end
 
         post do
-          Gatekeeper.invite(req[:email])
+          email = req[:email]
+
+          admin = admins.create(email: email, password: SecureRandom.hex(32))
+          
+          Gatekeeper.invite(admin)
 
           session[:alert] = 'The invitation is on its way'
 

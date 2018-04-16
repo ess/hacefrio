@@ -13,6 +13,42 @@ module Dashboard
         run(Login)
       end
 
+      on "activate" do
+        on :token do
+          @user = Admin[Gatekeeper.decode(inbox[:token])]
+
+          on @user != nil do
+            get do
+              render('views/public/activate.mote')
+            end
+
+            post do
+              on req[:password] != nil do
+                @user.update(password: req[:password])
+
+                authenticate(@user)
+
+                session[:alert] = 'Welcome to Hacefrio'
+
+                res.redirect '/'
+              end
+
+              default do
+                session[:alert] = 'Invalid password'
+
+                render('views/public/activate.mote')
+              end
+            end
+          end
+
+          default do
+            session[:alert] = 'Invalid or expired URL'
+
+            res.redirect '/reset'
+          end
+        end
+      end
+
 
       on "reset" do
         get do

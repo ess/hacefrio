@@ -29,5 +29,7 @@ Then "the Collaborator receives an invitation email" do
         delivery.subject == "Activate your account"
     }
 
+  memorize_fact(:invitation, invitation)
+
   expect(invitation).not_to be_nil
 end

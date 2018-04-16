@@ -18,6 +18,7 @@ gem 'tas'
 gem 'hache'
 gem 'nobi'
 gem 'malone'
+gem 'scrivener'
 
 # Persistence
 gem 'redic'
