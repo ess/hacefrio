@@ -1,0 +1,27 @@
+<form id="device-search"
+  style="width: 150px;"
+  id="device-search"
+  action="/devices/search"
+  method="POST">
+
+  <h2>Device Search</h2>
+  % if app.session[:search_failure]
+    <p>
+      {{ app.session.delete(:search_failure) }}
+    </p>
+  % end
+
+
+  <input
+    type="text"
+    name="serial_number"
+    id="serial_number"
+    placeholder="Serial Number">
+
+  <input
+    type="hidden"
+    name="return_to"
+    value="{{ return_path }}">
+
+  <button type="submit">Search</button>
+</form>

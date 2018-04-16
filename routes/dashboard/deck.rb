@@ -36,6 +36,7 @@ module Dashboard
     def page
       @page ||= view.new.tap do |page|
         page[:src] = 'views/layout.mote'
+        page[:extended_header] = ''
         page[:content] = view.new
         page[:content][:app] = self
       end
@@ -47,6 +48,10 @@ module Dashboard
       page[:content].update(params)
 
       res.html(page)
+    end
+
+    def partial(path, params = {})
+      mote(path, params.merge(app: self))
     end
 
   end

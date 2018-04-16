@@ -1,12 +1,32 @@
 module Dashboard
   module Authenticated
     Devices = Syro.new(Deck) do
+      page[:extended_header] = partial(
+        'views/authenticated/devices/search_form.mote',
+        return_path: req.path
+      )
+
       get do
         page[:title] = 'Devices'
         render("views/authenticated/devices/index.mote", devices: devices.all)
       end
 
       on 'devices' do
+        on 'search' do
+          post do
+            device_finder.call(serial_number: req[:serial_number]) do |m|
+              m.success do |device|
+                res.redirect "/devices/#{device.serial_number}"
+              end
+
+              m.failure do |error|
+                session[:search_failure] = "Couldn't find that device."
+                res.redirect req[:return_to]
+              end
+            end
+          end
+        end
+
         on :serial_number do
           device_finder.call(serial_number: inbox[:serial_number]) do |m|
             m.success do |device|

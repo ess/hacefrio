@@ -12,6 +12,7 @@
   <body>
     <header>
       <a href="/">HaceFrio</a>
+      {{ extended_header }}
     </header>
     <section>
       {{ content }}
