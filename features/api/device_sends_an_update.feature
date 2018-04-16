@@ -40,4 +40,3 @@ Feature: Device sends an update
     Then I'm advised that I'm not authorized to use the endpoint
     And no new sensors are recorded
     But an alert is generated regarding the failed authentication attempt
-
