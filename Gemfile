@@ -16,6 +16,8 @@ gem 'shield'
 gem 'mote'
 gem 'tas'
 gem 'hache'
+gem 'nobi'
+gem 'malone'
 
 # Persistence
 gem 'redic'

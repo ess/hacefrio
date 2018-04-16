@@ -1,0 +1,18 @@
+<h1>Password Reset</h1>
+
+% if app.session[:alert]
+  <p>
+    {{ app.session.delete(:alert) }}
+  </p>
+% end
+
+<form action="/reset" method="POST" id="reset">
+  <input
+    type="text"
+    name="email"
+    id="email"
+    placeholder="Enter your email"
+    value="{{ Hache.h(app.req[:email].to_s)}}">
+
+  <button type="submit">Reset</button>
+</form>

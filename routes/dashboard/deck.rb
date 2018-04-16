@@ -20,6 +20,14 @@ module Dashboard
       @acknowledger ||= Hacefrio::Workflows::AlertAcknowledge.new
     end
 
+    def reset_request
+      @reset_request ||= Hacefrio::Workflows::ResetRequest.new
+    end
+
+    def resetter
+      @resetter ||= Hacefrio::Workflows::Resetter.new
+    end
+
     def finish!
       handle 404 do
         page[:title] = 'Are you lost?'

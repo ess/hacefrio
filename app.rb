@@ -7,11 +7,13 @@ require 'shield'
 require 'mote'
 require 'tas'
 require 'hache'
+require 'nobi'
+require 'malone'
 
 Ohm.redis = Redic.new(ENV['REDIS_URL'])
 
 # Load everything up
-PIECES = "./{lib,routes,models}/*.rb"
+PIECES = "./{lib,routes,models,services}/*.rb"
 Dir[PIECES].each {|file| require file}
 
 Wrapp = Syro.new do

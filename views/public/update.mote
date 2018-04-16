@@ -1,0 +1,16 @@
+<h1>Update your password</h1>
+
+% if app.session[:alert]
+  <p>
+    {{ app.session.delete(:alert) }}
+  </p>
+% end
+
+<form id="update" action="{{ app.path.prev }}" method="POST">
+  <input
+    type="password"
+    name="password"
+    placeholder="Password">
+
+  <button type="submit">Update</button>
+</form>
