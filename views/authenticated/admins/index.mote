@@ -1,0 +1,19 @@
+<h1>Admins</h1>
+
+<table id="admins">
+  <thead>
+    <tr>
+      <th>Email</th>
+      <th>Status</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    % admins.each do |admin|
+      <tr id="admin-{{admin.id}}">
+        <td>{{admin.email}}</td>
+        <td>{{admin.status}}</td>
+      </tr>
+    % end
+  </tbody>
+</table>

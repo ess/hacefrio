@@ -1,11 +1,11 @@
 module Dashboard
   module Authenticated
-    Alerts = Syro.new(Deck) do
+    Admins = Syro.new(Deck) do
       get do
         page[:title] = 'Alerts'
         render(
-          "views/authenticated/alerts/index.mote",
-          alerts: alerts.all.sort(created_at: 'DESC')
+          "views/authenticated/admins/index.mote",
+          admins: admins.all.sort(email: 'ASC')
         )
       end
 

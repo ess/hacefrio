@@ -4,6 +4,7 @@ module Dashboard
     include Mote::Helpers
     include Hacefrio::Requirements::Import[
       'storage.devices',
+      'storage.admins',
       'storage.alerts',
     ]
 
@@ -45,7 +46,12 @@ module Dashboard
     def page
       @page ||= view.new.tap do |page|
         page[:src] = 'views/layout.mote'
-        page[:extended_header] = ''
+        page[:extended_header] = authenticated(Admin) ?
+          partial(
+            'views/authenticated/devices/search_form.mote',
+            return_path: req.path
+          ) : ''
+
 
         page[:nav] = partial(
           authenticated(Admin) ? 'views/authenticated/nav.mote' : 'views/public/nav.mote'

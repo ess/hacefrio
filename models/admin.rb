@@ -4,6 +4,7 @@ class Admin < Ohm::Model
 
   attribute :email
   attribute :crypted_password
+  attribute :blocked
 
   unique :email
   index :email
@@ -14,5 +15,9 @@ class Admin < Ohm::Model
 
   def self.with_serial_number(serial_number)
     find(serial_number: serial_number).first
+  end
+
+  def status
+    blocked ? 'Disabled' : 'Active'
   end
 end

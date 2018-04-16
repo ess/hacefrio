@@ -8,8 +8,9 @@ module Hacefrio
       extend Dry::Container::Mixin
 
       namespace('storage') do
-        register('devices') {Device}
+        register('admins') {Admin}
         register('alerts') {Alert}
+        register('devices') {Device}
         register('sensors') {Sensor}
       end
 

@@ -1,5 +1,6 @@
 <nav>
   <a href="/">Devices</a>
   <a href="/alerts">Alerts</a>
+  <a href="/admins">Admins</a>
   <a href="/logout">Sign Out</a>
 </nav>

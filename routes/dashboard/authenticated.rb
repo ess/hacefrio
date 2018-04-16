@@ -1,3 +1,4 @@
+require_relative 'authenticated/admins'
 require_relative 'authenticated/alerts'
 require_relative 'authenticated/devices'
 
@@ -8,6 +9,10 @@ module Dashboard
 
       on 'login' do
         res.redirect '/'
+      end
+
+      on "admins" do
+        run(Admins)
       end
 
       on "alerts" do
