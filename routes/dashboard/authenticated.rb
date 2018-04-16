@@ -11,6 +11,14 @@ module Dashboard
         res.redirect '/'
       end
 
+      on 'logout' do
+        get do
+          logout(Admin)
+
+          res.redirect '/'
+        end
+      end
+
       on "admins" do
         run(Admins)
       end
