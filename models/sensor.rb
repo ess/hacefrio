@@ -10,4 +10,17 @@ class Sensor < Ohm::Model
 
   index :reported_at
   index :sensor_name
+
+  def display_value
+    value.to_s + case sensor_name
+    when 'temp'
+      "&deg;C"
+    when 'humidity'
+      "%"
+    when 'co'
+      ' PPM'
+    else
+      ''
+    end
+  end
 end

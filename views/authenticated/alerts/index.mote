@@ -1,37 +1,9 @@
-<nav>
-  <a href="/">Devices</a>
-  <a href="/logout">Sign Out</a>
-</nav>
-
 <h1>Alerts</h1>
 
-<table id="devices">
-  <thead>
-    <tr>
-      <th>Severity</th>
-      <th>Message</th>
-      <th>Device</th>
-      <th>Reported</th>
-      <th>&nbsp;</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    % alerts.each do |alert|
-      <tr id="alert-{{alert.id}}">
-        <td>{{alert.severity}}</td>
-        <td>{{alert.message}}</td>
-        <td>{{alert.display_device}}</td>
-        <td>{{alert.reported_at}}</td>
-        <td>
-          <form id="device-search"
-            action="/alerts/{{alert.id}}/ack"
-            method="POST">
-
-            <button id="ack-{{alert.id}}" type="submit">Acknowledge</button>
-          </form>
-        </td>
-      </tr>
-    % end
-  </tbody>
-</table>
+{{
+  app.collection(
+    'views/authenticated/alerts/list.mote',
+    dataset: alerts,
+    topic: 'Alerts'
+  )
+}}

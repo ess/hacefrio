@@ -5,7 +5,7 @@ module Dashboard
         page[:title] = 'Alerts'
         render(
           "views/authenticated/admins/index.mote",
-          admins: admins.all.sort(email: 'ASC')
+          admins: admins.all.sort_by(:email, order: 'ALPHA')
         )
       end
 

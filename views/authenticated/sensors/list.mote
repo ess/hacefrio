@@ -1,0 +1,17 @@
+<table class="readings" id="readings">
+  <thead>
+    <tr>
+      <th>Reading</th>
+      <th>Reported At</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    % dataset.each do |sensor|
+      <tr id="sensor-{{sensor.id}}">
+        <td>{{sensor.display_value}}</td>
+        <td>{{Time.at(sensor.reported_at).utc}}</td>
+      </tr>
+    % end
+  </tbody>
+</table>

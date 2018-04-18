@@ -2,40 +2,36 @@
 
 <h1>Device Details</h1>
 
-<dl class="device" id="device-{{device.id}}">
-  <dt>Serial Number</dt><dd id="serial_number">{{device.serial_number}}</dd>
-  <dt>Firmware Version</dt><dd id="firmware">{{device.firmware}}</dd>
-  <dt>Registration Date</dt><dd id="registration">{{device.registered_at}}</dd>
-</dl>
+{{ app.partial('views/authenticated/devices/device.mote', device: device) }}
 
 <h2>Latest Sensor Readings</h2>
 
-<dl id="sensors">
+<dl class="sensors" id="sensors">
   <dt>Temperature</dt>
   <dd id="temp">
     <a id="temp-history" href="{{base_path}}/sensors/temp">
-      {{device.latest_temp}}
+      {{device.latest_temp}} &raquo;
     </a>
   </dd>
 
   <dt>Air Humidity</dd>
   <dd id="humidity">
     <a id="humidity-history" href="{{base_path}}/sensors/humidity">
-      {{device.latest_humidity}}
+      {{device.latest_humidity}} &raquo;
     </a>
   </dd>
   
   <dt>Carbon Monoxide Level</dt>
   <dd id="co">
     <a id="co-history" href="{{base_path}}/sensors/co">
-      {{device.latest_co}}
+      {{device.latest_co}} &raquo;
     </a>
   </dd>
   
   <dt>System Health</dt>
   <dd id="status">
     <a id="status-history" href="{{base_path}}/sensors/status">
-      {{device.latest_status}}
+      {{device.latest_status}} &raquo;
     </a>
   </dd>
 </dl>

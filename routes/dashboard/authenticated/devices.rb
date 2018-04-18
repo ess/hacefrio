@@ -3,6 +3,7 @@ module Dashboard
     Devices = Syro.new(Deck) do
       get do
         page[:title] = 'Devices'
+
         render("views/authenticated/devices/index.mote", devices: devices.all)
       end
 
@@ -63,13 +64,16 @@ module Dashboard
                           sensor_name: inbox[:sensor]
                         ).value!
 
+                      heading = "#{display_timespan} #{display_name}"
+
                       render(
                         'views/authenticated/sensors/show.mote',
                         sensors: sensors,
                         device: device,
                         sensor_name: inbox[:sensor],
-                        heading: page[:title],
-                        timespan: display_timespan
+                        heading: heading,
+                        timespan: display_timespan,
+                        topic: "#{heading} readings"
                       )
 
                     end

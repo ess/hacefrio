@@ -1,5 +1,7 @@
-<h1>Your account has been suspended</h1>
+<div class="suspended">
+  <h1>Your account has been suspended</h1>
 
-<p>
-  Please contact another admin if you have questions regarding this action.
-</p>
+  <p>
+    Please contact another admin if you have questions regarding this action.
+  </p>
+</div>

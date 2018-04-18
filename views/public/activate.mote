@@ -1,12 +1,12 @@
-<h1>Activate your Account</h1>
+<form id="activate" action="{{ app.path.prev }}" method="POST" class="password">
+  <h1>Activate your Account</h1>
 
-% if app.session[:alert]
-  <p>
-    {{ app.session.delete(:alert) }}
-  </p>
-% end
+  % if app.session[:alert]
+    <p>
+      {{ app.session.delete(:alert) }}
+    </p>
+  % end
 
-<form id="activate" action="{{ app.path.prev }}" method="POST">
   <input
     type="password"
     name="password"

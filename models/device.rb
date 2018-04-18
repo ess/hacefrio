@@ -37,9 +37,9 @@ class Device < Ohm::Model
   def latest_reading_for(sensor_name)
     sensor = sensors.
       find(sensor_name: sensor_name).
-      sort(reported_at: 'DESC').
+      sort_by(:reported_at, order: 'DESC').
       first
 
-    sensor.nil? ? 'No Recorded Value' : sensor.value
+    sensor.nil? ? 'No Recorded Value' : sensor.display_value
   end
 end

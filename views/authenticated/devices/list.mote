@@ -1,0 +1,15 @@
+<ul id="devices">
+  % dataset.each do |device|
+    % serial = device.serial_number
+    <li>
+      <a id="details-{{device.id}}" href="/devices/{{serial}}">
+        {{
+          app.partial(
+            'views/authenticated/devices/device.mote',
+            device: device
+          )
+        }}
+      </a>
+    </li>
+  % end
+</ul>

@@ -1,0 +1,273 @@
+@import "bourbon/bourbon";
+@import "base/base";
+@import "neat/neat";
+
+@mixin outer-container() {
+  @include grid-container;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@mixin header() {
+  @include grid-column(4 of 4);
+  background-color: $card-background;
+  border-right: 1px solid $dark-gray;
+  border-bottom: 1px solid $dark-gray;
+}
+
+@mixin card() {
+  padding-top: $grid-gap;
+  padding-bottom: $grid-gap;
+  margin-bottom: $grid-gap;
+  background-color: $card-background;
+  box-shadow: 3px 3px 10px 1px $medium-gray;
+  border-radius: 5px;
+}
+
+body {
+  background-color: $viewport-background-color;
+}
+
+a {
+  color: $base-font-color;
+  text-decoration: none;
+
+  &:hover {
+    color: #f00;
+  }
+}
+
+.viewport {
+  @include grid-container();
+
+  .sidebar {
+    @include grid-column(1);
+    text-align: center;
+
+    a {
+      @include grid-column(1 of 1);
+    }
+
+    a.logo {
+      @include card();
+      background-color: $light-gray;
+      font-weight: bold;
+      font-size: 2em;
+      margin-bottom: 4 * $grid-gap;
+    }
+
+    nav {
+      margin-top: 4 * $grid-gap;
+    }
+
+    form {
+      @include grid-column(1 of 1);
+      @include card();
+      margin-top: 4 * $grid-gap;
+      text-align: center;
+
+      .failure {
+        @include grid-column(1 of 1);
+        color: #cc0;
+      }
+
+      h2 {
+        @include grid-column(1 of 1);
+      }
+
+      input {
+        @include grid-column(1 of 1);
+      }
+
+    }
+  }
+
+  .main {
+    @include grid-column(4);
+
+    section {
+      @include grid-column(4 of 4);
+    }
+
+    footer {
+      @include grid-column(4 of 4);
+      text-align: right;
+      margin-top: 4 * $grid-gap;
+      border-top: 1px solid $medium-gray;
+    }
+
+    .red-alert {
+      @include grid-column(2 of 4);
+      @include grid-push(1);
+      @include card();
+      text-align: center;
+      color: #f00;
+      margin-bottom: 4 * $grid-gap;
+
+      a {
+        @include grid-column(2 of 2);
+        color: #f00;
+      }
+    }
+
+
+    .empty {
+      @include grid-column(2 of 4);
+      @include grid-push(1);
+      @include card();
+      padding-left: $grid-gap;
+      padding-right: $grid-gap;
+    }
+
+    .login {
+      @include grid-column(2 of 4);
+      @include grid-shift(1);
+      @include card();
+
+      input {
+        @include grid-column(2 of 2);
+      }
+
+      button {
+        @include grid-column(2 of 2);
+      }
+
+      a {
+        @include grid-column(2 of 2);
+        text-align: center;
+      }
+    }
+
+    .password {
+      @include grid-column(2 of 4);
+      @include grid-shift(1);
+      @include card();
+
+      input {
+        @include grid-column(2 of 2);
+      }
+
+      button {
+        @include grid-column(2 of 2);
+      }
+    }
+
+    .suspended {
+      @include grid-column(2 of 4);
+      @include grid-push(1);
+      @include card();
+
+      p {
+        @include grid-column(2 of 2);
+      }
+
+    }
+
+    dt {
+      @include grid-column(1 of 4);
+    }
+
+    .device {
+      @include grid-column(4 of 4);
+      @include card();
+      margin-bottom: 4 * $grid-gap;
+
+      dd {
+        @include grid-column(3 of 4);
+      }
+    }
+
+    .device-condensed {
+      @include grid-column(2 of 4);
+      @include card();
+
+      dd {
+        @include grid-column(1 of 4);
+      }
+    }
+
+    .controls {
+      @include grid-column(4 of 4);
+      font-weight: bold;
+    }
+
+    .invite {
+      @include grid-column(4 of 4);
+
+      p {
+        @include grid-column(4 of 4);
+      }
+    }
+
+    .invitation {
+      @include grid-column(2 of 4);
+      @include grid-push(1);
+      @include card();
+
+      input {
+        @include grid-column(2 of 2);
+      }
+
+      button {
+        @include grid-column(2 of 2);
+      }
+    }
+
+    .sensors {
+      @include grid-column(4 of 4);
+      @include card();
+
+      dd {
+        @include grid-column(1 of 4);
+      }
+    }
+
+    table {
+      //border-collapse: collapse;
+      @include grid-column(4 of 4);
+      @include card();
+      border-style: hidden;
+      border-collapse: collapse;
+
+      thead, tbody, tr {
+        @include grid-column(4 of 4);
+      }
+    }
+
+    table.readings {
+      th, td {
+        @include grid-column(2);
+      }
+    }
+
+    table.alerts {
+      th, td {
+        @include grid-column(1);
+      }
+    }
+
+    h1 {
+      @include header();
+    }
+    
+    h2, h3 {
+      @include header();
+      margin-top: 2em;
+    }
+
+    .admin {
+      @include grid-column(4 of 4);
+      @include card();
+      margin-bottom: 4 * $grid-gap;
+
+      .email {
+        @include grid-column(2 of 4);
+      }
+
+      .status {
+        @include grid-column(2 of 4);
+        text-align: center;
+      }
+    }
+  }
+}

@@ -10,18 +10,26 @@
       type="text/css">
   </head>
   <body>
-    <header>
-      <a href="/">HaceFrio</a>
-      {{ extended_header }}
-    </header>
-    <section>
-      {{ nav }}
-      {{ content }}
-    </section>
-    <footer>
-      <p>
-        <a href="https://github.com/ess/hacefrio">Fork Me On Github</a>
-      </p>
-    </footer>
+    <div class="viewport">
+      <div class="sidebar">
+        <header>
+          <a class="logo" href="/">HaceFrio</a>
+        </header>
+        {{ nav }}
+        {{ extended_header }}
+      </div>
+
+      <div class="main">
+        <section>
+          {{ red_alert }}
+          {{ content }}
+        </section>
+        <footer>
+          <p>
+            <a href="https://github.com/ess/hacefrio">Fork Me On Github</a>
+          </p>
+        </footer>
+      </div>
+    </div>
   </body>
 </html>

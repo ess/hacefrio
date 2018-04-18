@@ -1,14 +1,11 @@
-<nav>
-  <a href="/">Devices</a>
-  <a href="/logout">Sign Out</a>
-</nav>
-
 <h1>You Are Here</h1>
 
-<p>
-The problem with the fact that you are here is that there is nothing else here.
-</p>
+<div class="empty">
+  <p>
+    The problem with the fact that you are here is that there is nothing else here.
+  </p>
 
-<p>
-You see, it turns out that the link that you clicked (or typed) points to something that does not exist.
-</p>
+  <p>
+    You see, it turns out that the link that you clicked (or typed) points to something that does not exist.
+  </p>
+</div>

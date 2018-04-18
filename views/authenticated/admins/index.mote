@@ -1,33 +1,24 @@
 <h1>Admins</h1>
 
-% if app.session[:alert]
+<div class="invite">
   <p>
-    {{ app.session.delete(:alert) }}
+    <a href="/admins/new" id="invite">Invite a Collaborator</a>
   </p>
-% end
 
-<p>
-  <a href="/admins/new" id="invite">Invite a Collaborator</a>
-</p>
+  % if app.session[:alert]
+    <p>
+      {{ app.session.delete(:alert) }}
+    </p>
+  % end
+</div>
 
-<table id="admins">
-  <thead>
-    <tr>
-      <th>Email</th>
-      <th>Status</th>
-    </tr>
-  </thead>
-
-  <tbody>
     % admins.each do |admin|
-      <tr id="admin-{{admin.id}}">
-        <td>{{admin.email}}</td>
-        <td>
+      <div class="admin" id="admin-{{admin.id}}">
+        <span class="email">{{admin.email}}</span>
+        <span class="status">
           <a id="toggle" href="/admins/{{admin.id}}/toggle">
-            {{admin.status}}
+            {{admin.status}} (click to toggle)
           </a>
-        </td>
-      </tr>
+        </span>
+      </div>
     % end
-  </tbody>
-</table>

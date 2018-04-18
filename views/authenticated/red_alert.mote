@@ -1,0 +1,7 @@
+% if unacked_crits?
+  <div class="red-alert">
+    <a id="alert-notice" href="/alerts" style="">
+      There are unacknowledged critical alerts!
+    </a>
+  </div>
+% end

@@ -33,15 +33,19 @@ module Dashboard
     end
 
     def finish!
-      handle 404 do
-        page[:title] = 'Are you lost?'
-        render('views/404.mote')
+      unless inbox[404]
+        handle 404 do
+          page[:title] = 'Are you lost?'
+          render('views/404.mote')
+        end
       end
 
-      handle 403 do
-        logout(Admin)
-        page[:title] = 'Your account is suspended'
-        render('views/403.mote')
+      unless inbox[403]
+        handle 403 do
+          logout(Admin)
+          page[:title] = 'Your account is suspended'
+          render('views/403.mote')
+        end
       end
 
       super
@@ -70,6 +74,12 @@ module Dashboard
             return_path: req.path
           ) : ''
 
+        page[:red_alert] = authenticated(Admin) ?
+          partial(
+            'views/authenticated/red_alert.mote',
+            return_path: req.path
+          ) : ''
+
 
         page[:nav] = partial(
           authenticated(Admin) ? 'views/authenticated/nav.mote' : 'views/public/nav.mote'
@@ -90,6 +100,12 @@ module Dashboard
 
     def partial(path, params = {})
       mote(path, params.merge(app: self))
+    end
+
+    def collection(path, dataset:, topic:)
+      dataset.count == 0 ?
+          partial('views/authenticated/empty.mote', topic: topic) :
+          partial(path, dataset: dataset)
     end
 
   end

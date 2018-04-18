@@ -3,6 +3,9 @@ require_relative 'public/login'
 module Dashboard
   module Public
     App = Syro.new(Deck) do
+      handle 404 do
+        res.redirect '/login'
+      end
 
       # Require logins
       get do

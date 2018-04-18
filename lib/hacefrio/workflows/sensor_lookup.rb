@@ -37,7 +37,7 @@ module Hacefrio
 
         collection = sensors.
           find(device_id: device_id, sensor_name: sensor_name).
-          sort(reported_at: 'DESC').
+          sort_by(:reported_at, order: 'DESC').
           reject {|sensor| sensor.reported_at < offset}
 
         Success(collection)

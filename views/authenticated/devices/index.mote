@@ -1,22 +1,9 @@
 <h1>Devices</h1>
 
-<table id="devices">
-  <thead>
-    <tr>
-      <th>Serial Number</th>
-      <th>Firmware Version</th>
-      <th>Registration</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    % devices.each do |device|
-      % serial = device.serial_number
-      <tr id="device-{{device.id}}">
-        <td><a href="/devices/{{serial}}">{{serial}}</a></td>
-        <td>{{device.firmware}}</td>
-        <td>{{device.registered_at}}</td>
-      </tr>
-    % end
-  </tbody>
-</table>
+{{
+  app.collection(
+    'views/authenticated/devices/list.mote',
+    dataset: devices,
+    topic: 'Devices'
+  )
+}}

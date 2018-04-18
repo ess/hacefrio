@@ -56,7 +56,7 @@ Then %r(^I land on the details page for the device's (.+) sensor$) do |sensor_na
 end
 
 Then "I'm advised that I'm seeing the readings for the last day" do
-  expect(page).to have_content("Current view: Daily")
+  expect(page).to have_content(/Daily .* Readings/)
 end
 
 Then "I see an option to view the last week's readings" do

@@ -28,6 +28,13 @@ gem 'ohm-contrib'
 
 gem 'bcrypt'
 
+group :development do
+  gem 'sass'
+  gem 'bourbon'
+  gem 'neat'
+  gem 'bitters'
+end
+
 group :test do
   gem 'cucumber', '~> 3.0'
   gem 'rspec', '~> 3.0'

@@ -25,7 +25,7 @@ When "the device reports a dangerous carbon monoxide level" do
 end
 
 Then "I do not immediately see the alert" do
-  expect(page).not_to have_selector('.crit')
+  expect(page).not_to have_selector('.red-alert')
 end
 
 When "I refresh the page" do
@@ -33,7 +33,7 @@ When "I refresh the page" do
 end
 
 Then "I see that there are unacknowledged critical alerts" do
-  expect(page).to have_selector('.crit')
+  expect(page).to have_selector('.red-alert')
 end
 
 When "I click on the notification" do

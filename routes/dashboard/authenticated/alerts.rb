@@ -3,9 +3,10 @@ module Dashboard
     Alerts = Syro.new(Deck) do
       get do
         page[:title] = 'Alerts'
+
         render(
           "views/authenticated/alerts/index.mote",
-          alerts: alerts.all.sort(created_at: 'DESC')
+          alerts: alerts.all.sort_by(:created_at, order: 'DESC')
         )
       end
 

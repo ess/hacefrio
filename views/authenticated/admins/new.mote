@@ -1,6 +1,6 @@
-<h1>Invite a Collaborator</h1>
+<form class="invitation" id="new-admin" action="/admins/new" method="POST">
+  <h1>Invite a Collaborator</h1>
 
-<form id="new-admin" action="/admins/new" method="POST">
   <input
     type="text"
     id="email"
